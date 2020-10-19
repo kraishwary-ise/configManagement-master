@@ -1,0 +1,76 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+
+<title>Welcome to DashBoard</title>
+</head>
+<body>
+  
+
+  <app-navbar></app-navbar>
+  <div id="message" *ngIf="msgExist">
+
+    <div  class="alert alert-info alert-dismissible fade show" role="alert">
+      <strong>{{msg}}</strong>
+      <button type="button" (click)="closeAlert()" class="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    </div>
+    
+  <div class="example-container library" >
+    <div class="headings">
+      <h3 >Library</h3>
+    </div>
+  
+    <div
+      cdkDropList
+      #triggerList="cdkDropList"
+      [cdkDropListData]="trigger"
+      [cdkDropListConnectedTo]="[triggerSelectedList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" *ngFor="let item of trigger" cdkDrag>{{item.name}}</div>
+    </div>
+  </div>
+  
+
+  <div class="example-container config" style=" margin: 50px 25px 25px 0px; width: 600px;">
+    
+    <div class="headings config">
+      <h4 style="color: #F4901E !important;">Config Space</h4>
+    </div>
+
+    <div style="padding: 10px;  ">     
+      
+      <div class="heading2">
+        <h3>Selected Triggers </h3>
+        <p> Drag and drop a trigger library here</p>          
+      </div>
+      
+  
+      <div
+        cdkDropList
+        #triggerSelectedList="cdkDropList"
+        [cdkDropListData]="triggerSelected"
+        [cdkDropListConnectedTo]="[triggerList]"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)" style=" width: 60%;">
+        <div class="example-box" *ngFor="let item of triggerSelected" cdkDrag>{{item.name}}</div>
+      </div>
+
+     <div>
+      <button class="m-5 px-4 py-1 btn btn-info" (click)="save()">Save</button>    
+      <button class="m-5 px-4 py-1 btn btn-primary" (click)="openOffers()">Offers</button>
+     </div>
+     
+    </div>  
+
+  </div> 
+  
+  
+  
+  </body>
+  </html>
+  
+  

@@ -1,0 +1,121 @@
+
+<div id="message" *ngIf="msgExist">
+    <div style="position:fixed"  class="alert alert-warning" role="alert">
+      <strong>{{msg}}</strong>
+      <button type="button" (click)="closeAlert()" class="close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+  <app-navbar></app-navbar>
+  
+
+<section> 
+                 
+    <div class="mainbox-heading">Configuration Area
+      <div class="expand" id="expandForm" >
+        <a href="javascript:;" id=expand>
+            <span class="symbol-mainbox">
+                 <i class="fa fa-compress" aria-hidden="true"></i>
+            </span> 
+        </a>
+       </div>  
+    </div>
+    
+   <div class="UsecaseForm">
+        <div class="formTitle">
+            <h4>CREATE NEW USECASE</h4>
+            <p>Fill in the details to create new UseCase</p>
+        </div>
+        <div class="version">
+            <span class="col-sm-5" style="line-height: 10px; padding-left: 10px;">
+            <b>Verson :</b> 0.1
+            </span>
+            <span class="col-sm-5" style="line-height: 15px; padding-left: 10px;"> 
+            <b>Type :</b> 
+            STANDARD   
+            </span> <br>
+        </div>
+        <form usecaseForm="ngForm" (ngSubmit)="UseCaseSubmit()" class="pureForm">
+                
+            <div class="pure-control-group">
+                <label id="name" for="aligned-name"> 
+                    <span class="error"></span>
+                    
+                 </label>
+                                               
+                                                
+            </div>
+
+                <div class="pure-control-group ">
+                    <label class="mt-4" for="aligned-date">
+                        <span class="error">*</span>
+                        Name
+                      
+                    </label>
+                    <input type="text" id="aligned-name" placeholder="name" name="name" [(ngModel)]="useCase.name" #name="ngModel" required/>
+                    <small class="text-danger"  [class.d-none]="name.untouched||name.value">Name is required</small>
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="desc">
+                        <span class="error">*</span>
+                        Description
+                    </label>
+                    <textarea id="desc" rows="" cols="" name="desc" [(ngModel)]="useCase.desc" #desc="ngModel" required></textarea>
+
+                </div>
+
+                
+
+                <div class="pure-control-group" id="dataPicker">
+                    <label for="start-date">Start Date</label>
+                    <input type="date"   id="start-date"  min="{{dtToday}}" name="sdate" [(ngModel)]="useCase.sdate"/>
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="end-date">End Date</label>
+                    <input type="date" id="end-date"  min="{{useCase.sdate}}" name="edate" [(ngModel)]="useCase.edate" />
+                </div>
+                
+                <div class="pure-control-group">
+                    <label for="bussinessG">Business Group</label>
+                    <select [(ngModel)]="useCase.businesslog" name="businessgroup">
+                        <option disabled="disabled" selected="selected" >--Choose Option--</option>
+                        <option value="prep">Prepaid CVM</option>
+                        <option value="post">Postpaid CVM</option>
+                        <option value="fixed">Fixed Line CVM</option>
+                    </select>
+                    
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="dir">Direction</label>
+                    <select [(ngModel)]="useCase.direction"  name="direction" >
+                        <option disabled="disabled" selected="selected" >--Choose Option--</option>
+                        <option value="inbound">Inbound</option>
+                        <option value="outbound">Outbound</option>
+                        <option value="in">in</option>
+                    </select>
+                    
+                </div>
+                
+            
+                <div class="pure-control-group">
+                    <label for="Camp" >Campaign Objective</label>
+                    <select  [(ngModel)]="useCase.campeing"  placeholder="--Please Select--" name="camp">
+                        <option class="selectOption" disabled="disabled" selected="selected" value="choose">--Choose Option--</option>
+                        <option value="Cross">Cross Sell</option>
+                        <option value="retention">Retention</option>
+                        <option value="UP">Up Sell</option>
+                        <option value="both">Cross-sell & Up-sell</option>                                
+                    </select>                               
+                </div>                   
+       <div class="buttons">             
+    <button type="submit" class="m-1 px-4 py-1 btn btn-info" >Save</button>
+    <button type="reset" class=" m-1 px-4 py-1 btn btn-danger" (click)="cancelForm()" >Reset</button>
+    <button type="button" class=" m-1 px-4 py-1 btn btn-warning trigger" (click)="moveToTrigger()">Trigger</button>   
+</div>
+</form>
+</div>
+</section>            

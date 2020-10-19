@@ -1,0 +1,122 @@
+
+
+    <app-navbar></app-navbar>
+
+    
+
+    <div class="container-fluid">
+
+      
+    <div id="message" *ngIf="msgExist">
+      <div style="position:fixed"  class="alert alert-info" role="alert">
+        <strong>{{msg}}</strong>
+        <button type="button" (click)="closeAlert()" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+    
+
+      <h4>Use Cases</h4>
+      <button (click)="listOrAddUseCase()" class="btn btn-danger ml-2 mt-1">+ Add UseCase</button>
+
+      <button (click)="open(content)" class="btn btn-danger ml-2 mt-1">+ Import UseCase</button>
+     
+
+
+
+    </div>
+
+    <div id="message" *ngIf="msgExist">
+
+      <div  class="alert alert-info alert-dismissible fade show" role="alert">
+        <strong>{{msg}}</strong>
+        <button type="button" (click)="closeAlert()" class="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      </div>
+      <div class="search">
+      <input class="px-3 py-1" type="text" placeholder="search UseCase" [(ngModel)]="searchBy"/>
+    </div>
+       <table id="viewUseCase" class="my-3 table table-striped  ">
+
+        <thead class="table-dark" >
+      
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
+                  <th scope="col">Version</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Environment</th>
+                  <th scope="col">Export Use Case</th>
+                  <th scope="col">Delete Use Case</th>
+      
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr class="clickable" *ngFor="let res of listUseCase|filter:searchBy|paginate:{itemsPerPage:10,currentPage:pageNumber}; index as i">
+                  <th scope="row">{{i+1}}</th>
+      
+                  <td (click)="openTrigger($event,res)">{{res.name}}</td>
+                  <td (click)="openTrigger($event,res)">{{res.desc}}</td>
+                  <td (click)="openTrigger($event,res)">{{res.type}}</td>
+                  <td  (click)="openTrigger($event,res)">{{res.sdate|slice:0:10}}</td>
+                  <td (click)="openTrigger($event,res)">{{res.edate|slice:0:10}}</td>
+                  <td (click)="openTrigger($event,res)">0.01</td>
+                  <td (click)="openTrigger($event,res)">{{res.status}}</td>
+                  <td (click)="openTrigger($event,res)">{{res.env}}</td>
+                  <td class="clickable" (click)="eachUseCase($event,res)"><button class="btn btn-danger">Export Use Case</button></td>
+                  <td class="clickable" (click)="deleteUseCase($event,res)"><button class="btn btn-danger">Delete Use Case</button></td>
+      
+      
+      
+                </tr>
+               </tbody>
+            </table>
+      
+            <pagination-controls class="text-center" (pageChange)="pageNumber=$event"></pagination-controls>
+
+
+    <ng-template #content let-modal> 
+      <div class="modal-header"> 
+        <h4 class="modal-title"
+          id="modal-basic-title"> 
+          Import Use Cases 
+        </h4> 
+        <button type="button" class="close"
+            aria-label="Close" (click)= 
+            "modal.dismiss('Cross click')"> 
+    
+          <span aria-hidden="true"> 
+            × 
+          </span> 
+        </button> 
+      </div> 
+      <div class="modal-body"> 
+        <form > 
+          <div class="form-group"> 
+            <label for="dateOfBirth"> 
+                Upload a useCases
+           </label> 
+            <div class="input-group"> 
+              <input type="file" (change)="selectFile($event)" value="select file!" multiple="multiple" accept=".json">
+            </div> 
+          </div> 
+        </form> 
+      </div> 
+      <div class="modal-footer"> 
+        <button type="submit"
+          class="btn btn-outline-dark"
+          (click)="importUseCase(); modal.dismiss('Cross click')"> 
+          Import UseCases 
+        </button> 
+      </div> 
+    </ng-template> 
+    
+    

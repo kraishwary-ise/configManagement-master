@@ -1,0 +1,1 @@
+{"businessLog":"postpaid CVM","campeing":"cross-sell","sDate":2020-10-20 05:30:00.0,"name":"TEST_SUMANTH","description":"TEST_SUMANTH","id":153,"eDate":null,"triggers":[{"triggerName":"DATA_PACK","useCaseId":153,"triggerId":6},{"triggerName":"990_SSE","useCaseId":153,"triggerId":7}],"direction":"inbound"}
