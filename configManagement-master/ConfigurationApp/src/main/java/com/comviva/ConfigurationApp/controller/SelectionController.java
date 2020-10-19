@@ -42,11 +42,10 @@ public class SelectionController {
 	@PostMapping("/saveSelection")
 	public void saveSelection(@RequestBody SelectionDrag[] selectionDrag) {
 		
-			logger.info("in save: Selection");
+			logger.debug("in save: Selection");
 		
 //logger.info(selectionDrag.length);
 		
-			logger.info(selectionDrag[0].toString());
 		
 		
 		selectionService.saveSelection(selectionDrag);

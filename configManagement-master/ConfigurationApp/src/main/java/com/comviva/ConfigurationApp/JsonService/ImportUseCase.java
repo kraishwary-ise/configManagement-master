@@ -91,10 +91,10 @@ public class ImportUseCase {
 					
 					
 					String businessGroup = (String) jsonObject.get("businessLog");
-					logger.info("importing bUSINESS GROUP" + businessGroup);
+					logger.debug("importing bUSINESS GROUP" + businessGroup);
 					String Direction = (String) jsonObject.get("direction");
 					
-					logger.info("importing usecase dIRECTION"+Direction);
+					logger.debug("importing usecase dIRECTION"+Direction);
 					
 					usecases.add(new UseCase(name, descr, sDate, eDate,  Direction,campeingObjective,businessGroup));
 	

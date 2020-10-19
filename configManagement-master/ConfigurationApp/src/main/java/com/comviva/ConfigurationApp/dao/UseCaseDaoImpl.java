@@ -75,8 +75,8 @@ public class UseCaseDaoImpl implements UseCaseDao {
 			return response;
 
 		} else {
-			response.setResponse("Name and Description souuld be less than 45 characters");
-			System.out.println(name_length);
+			response.setResponse("Name and Description Should be less than 45 characters");
+			
 			return response;
 		}
 	}

@@ -71,7 +71,9 @@ String path="D:\\SeleniumSoftware\\configManagement-master\\configManagement-mas
 				}
 					
 		    	} catch (FileNotFoundException e) {
+		    		logger.debug("file not found/created");
 				} catch (IOException e) {
+					logger.debug("Io exception");
 					e.printStackTrace();
 				} catch (ParseException e) {
 					e.printStackTrace();

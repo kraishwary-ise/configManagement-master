@@ -47,7 +47,7 @@ public class UseCaseService {
 		
 	}
 
-
+//prior impemented
 	public int fetchIdByName(String name) {
 		return userCaseDao.fetchIdByName(name);
 	}

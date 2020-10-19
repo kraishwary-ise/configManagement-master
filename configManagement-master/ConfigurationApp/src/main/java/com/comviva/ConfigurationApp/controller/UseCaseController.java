@@ -35,7 +35,7 @@ public class UseCaseController {
 	public StringResponse  saveUseCase(@RequestBody UseCase useCase) {
 		
 		
-		logger.info("print usecase" + useCase.toString());
+		logger.debug("print usecase" + useCase.toString());
 		
 		
 		StringResponse res = useCaseService.saveUseCase(useCase);
@@ -55,7 +55,7 @@ public class UseCaseController {
 	
 	@PostMapping("/delete")
 	public void  deleteUseCase(@RequestBody int id) {
-		
+		logger.info("deleting usecase id "+id);
 		useCaseService.deleteUseCase(id);
 		
 		

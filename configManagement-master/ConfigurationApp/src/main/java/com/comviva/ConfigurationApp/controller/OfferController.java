@@ -41,11 +41,11 @@ public class OfferController {
 	@PostMapping("/saveOffer")
 	public void saveOffer(@RequestBody OfferDrag[] offerDrag) {
 		
-	logger.info("in save:offers");
+	logger.debug("in save:offers");
 		
-	logger.info(offerDrag.length);
+	logger.debug(offerDrag.length);
 		
-		logger.info(offerDrag[0].toString());
+		
 		
 		
 		offerService.saveOffer(offerDrag);

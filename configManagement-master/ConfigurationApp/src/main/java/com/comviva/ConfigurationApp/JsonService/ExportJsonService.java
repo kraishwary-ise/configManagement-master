@@ -73,7 +73,7 @@ public class ExportJsonService {
 		jsonData.put("eDate", eDate);
 
 		
-		logger.info("print end date",edate);
+		logger.debug("print end date",edate);
 
 		
 		String direction = useCase.getDirection();
@@ -99,22 +99,22 @@ public class ExportJsonService {
 		
 		if(useCase.getTriggers().isEmpty()) {
 			
-			logger.info("null");
+			logger.error("null");
 		
 		}
 		
 	
 			else {
 				
-				logger.info("correct else");
+				logger.debug("correct else");
 				
-				logger.info(useCase.getTriggers().size());
+				logger.info("size= "+useCase.getTriggers().size());
 				
 				for(int i=0;i<useCase.getTriggers().size();i++) {
 					
 					int triggerId = useCase.getTriggers().get(i).getId();
 					
-					logger.info("print trigger id" + triggerId);
+					logger.debug("Importing Trigger id" + triggerId);
 					
 					String triggerName = useCase.getTriggers().get(i).getTriggerName();
 					
@@ -236,7 +236,7 @@ public class ExportJsonService {
 		
 		
 		
-		String path;
+		 String path;
 		
 		
 		path="D:\\SeleniumSoftware\\configManagement-master\\configManagement-master\\ConfigurationApp\\UseCases";
@@ -254,6 +254,8 @@ public class ExportJsonService {
 		String fullFileName=path+"\\"+filename;
 		
 		boolean fileExists=file.exists();
+		
+		//TRY ND CACHE
 		if(!fileExists) {
 		      boolean bool = file.mkdir();
 
@@ -270,8 +272,8 @@ public class ExportJsonService {
 	        	
 	        	
 	        	catch (IOException e) {
-	         e.printStackTrace();
-	            logger.info("writing problem");
+	         //e.printStackTrace();
+	            logger.error("writing problem");
 	        }
 	
 	

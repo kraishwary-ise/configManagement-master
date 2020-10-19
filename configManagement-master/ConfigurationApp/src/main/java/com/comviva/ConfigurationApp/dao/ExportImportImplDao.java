@@ -35,7 +35,7 @@ public class ExportImportImplDao implements ExportImportDao {
 		
 		query.setParameter("id", id);
 		
-		List<UseCase> results = query.getResultList();
+		List<UseCase> results = query.getResultList();   
 		
 		return results.get(0);
 	

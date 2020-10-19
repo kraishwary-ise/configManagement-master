@@ -70,9 +70,11 @@ public class ImportOffers {
 					
 		    	} catch (FileNotFoundException e) {
 				} catch (IOException e) {
+					logger.error("Writing error  I/O EXCEPTION");
 					e.printStackTrace();
 				} catch (ParseException e) {
 					e.printStackTrace();
+					logger.error("Writing permission error");
 				}
 	
 		    }
