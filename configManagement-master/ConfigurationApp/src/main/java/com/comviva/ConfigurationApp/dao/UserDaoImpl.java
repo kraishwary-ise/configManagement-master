@@ -33,9 +33,9 @@ public class UserDaoImpl implements UserDAO {
 		
 		Session currentSession= entityManager.unwrap(Session.class);
 		
-		String hql = "from User u where u.userEmail=:userEmail and u.password=:password";
+		String sql = "from User u where u.userEmail=:userEmail and u.password=:password";
 		
-		Query query = currentSession.createQuery(hql);
+		Query query = currentSession.createQuery(sql);
 		
 		query.setParameter("userEmail", userEmail);
 		query.setParameter("password", password);
