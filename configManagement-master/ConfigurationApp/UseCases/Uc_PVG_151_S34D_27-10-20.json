@@ -1,0 +1,1 @@
+{"businessLog":null,"campeing":null,"sDate":"2020-30-29","name":"PVG_151_S34D","description":"Prototype for PVG Project","id":265,"eDate":"2020-30-31","triggers":[{"triggerName":"COMBO_365","useCaseId":265,"triggerId":173},{"triggerName":"DATA_PACK","useCaseId":265,"triggerId":174}],"direction":null}

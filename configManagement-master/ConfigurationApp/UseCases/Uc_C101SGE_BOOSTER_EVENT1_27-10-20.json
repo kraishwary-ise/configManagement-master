@@ -1,0 +1,1 @@
+{"businessLog":"post","campeing":"both","sDate":"2020-30-31","name":"C101SGE_BOOSTER_EVENT1","description":"TERSTRIAL_DATA_SAVER","id":260,"eDate":"2020-30-31","triggers":[{"triggerName":"DATA_PACK","useCaseId":260,"triggerId":167}],"direction":"in"}
